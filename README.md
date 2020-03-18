@@ -10,10 +10,10 @@ The research hypothesizes that women are tend to participate less, and even if t
 
 To prove the hypothesis, the research will utilize comments from the New York Times Business section and focus on three key variables:
 1) Number of total recommendation (dependent variable, a proxy measure for 'acceptance') <br\>
-2) Gender (independent variable, use comment handle as proxy for gender, use nltk library for male/female names; abbreviations(i.e. MLK) are noted as neutral) <br\>
-3) NYTimes endorsement (independent variable, proxy for comment 'quality') [link](https://help.nytimes.com/hc/en-us/articles/115014792387-Comments) <br\>
-	NYT Picks are a selection of comments that represent a range of views and are judged the most interesting or thoughtful. <br\>
-	In some cases, NYT Picks may be selected to highlight comments from a particular region, or readers with first-hand knowledge of an issue. <br\>
+2) Gender (independent variable, use comment handle as proxy for gender, use nltk library for male/female names; abbreviations(i.e. MLK) are noted as neutral)
+3) NYTimes endorsement (independent variable, proxy for comment 'quality') [link](https://help.nytimes.com/hc/en-us/articles/115014792387-Comments)
+	NYT Picks are a selection of comments that represent a range of views and are judged the most interesting or thoughtful.
+	In some cases, NYT Picks may be selected to highlight comments from a particular region, or readers with first-hand knowledge of an issue.
 
 ------------------------------------------------------
 ## Section 2. API documentation for NYT comment section
