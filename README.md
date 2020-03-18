@@ -9,9 +9,10 @@ This research proposes to analyze comments in New York Times finance section to 
 The research hypothesizes that women are tend to participate less, and even if they do participate, their participation is less appreciated compared to men. Through this, the research aims to depict societal bias about women's participation in finance.
 
 To prove the hypothesis, the research will utilize comments from the New York Times Business section and focus on three key variables:
-1) Number of total recommendation (dependent variable, a proxy measure for 'acceptance') <br\>
+1) Number of total recommendation (dependent variable, a proxy measure for 'acceptance') 
 2) Gender (independent variable, use comment handle as proxy for gender, use nltk library for male/female names; abbreviations(i.e. MLK) are noted as neutral)
-3) NYTimes endorsement (independent variable, proxy for comment 'quality') [link](https://help.nytimes.com/hc/en-us/articles/115014792387-Comments)
+3) NYTimes endorsement (independent variable, proxy for comment 'quality') 
+   Link to comment information is available [here](https://help.nytimes.com/hc/en-us/articles/115014792387-Comments)
 	NYT Picks are a selection of comments that represent a range of views and are judged the most interesting or thoughtful.
 	In some cases, NYT Picks may be selected to highlight comments from a particular region, or readers with first-hand knowledge of an issue.
 
