@@ -167,6 +167,20 @@ class functions(object):
         cat_tmp2 = [re.sub('[\[\]]','',text) for text in cat_tmp]
         cat_tmp3 = [re.sub('^\/*|\/*$','',str(text)) for text in cat_tmp2]
         result_df['category'] = cat_tmp3
+        
+        # Add upper category (i.e. world/asia, world/europe -> world
+        category_ = []
+        for text in result_df['category']:
+            try:
+                tmp = re.split('/', text)[1]
+                category_.append(tmp)
+            except:
+                category_.append("No category")
+
+        result_df['category_'] = category_
+        
+        # Add business boolean
+        result_df['biz'] = [bool(re.search('business', text)) for text in result_df['category_']]
 
 
         return result_df
@@ -202,29 +216,6 @@ class functions(object):
 
         return(big_df)
 
-    def get_urllist(self, section_name):
-        """gets url list from a particular nytimes section, such as world,
-        politics, business, technology etc."""
-
-        import urllib.request
-        from bs4 import BeautifulSoup
-        import re
-
-        url_in = 'https://www.nytimes.com/section/'+ section_name
-
-        page = urllib.request.urlopen(url_in)
-        soup = BeautifulSoup(page, 'html.parser')
-        urls = []
-
-        for link in soup.find_all('a'):
-            tmp = link.get('href')
-            if bool(re.search('[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]', str(tmp))) == True:
-                tmp_url = 'https://www.nytimes.com/section/world' + tmp
-                #print(tmp_url)
-            urls.append(tmp_url)
-
-        # urls is a list of urls ready for llping through nytimes sections
-        return(urls)
 
     def get_all_articles_month(self, year, month):
         """gets all nyt articles of that year, month; requires NYT API"""
@@ -243,8 +234,8 @@ class functions(object):
         for i in json_file['response']['docs']:
             tmp = str(i['web_url'])
             # filter out sections without comments
-            # obituaries, crosswords, pageoneplus(edits), realestate, weddings, arts, parenting
-            if bool(re.search('obituaries|crosswords|pageoneplus|realestate|/fashion/weddings/|arts|parenting', tmp)) == False:
+            # obituaries, crosswords, weddings
+            if bool(re.search('/obituaries|/crosswords|/fashion/weddings/', tmp)) == False:
                 urls.append(tmp)
 
         # only get the unique urls
@@ -257,3 +248,4 @@ class functions(object):
                 url_clean.append(i)
 
         return(url_clean)
+       
