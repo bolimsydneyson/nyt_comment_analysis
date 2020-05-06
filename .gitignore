@@ -1,0 +1,8 @@
+# ignore large .csv files
+*.csv
+
+#ignore history logs
+.ipynb_checkpoints/
+
+
+
